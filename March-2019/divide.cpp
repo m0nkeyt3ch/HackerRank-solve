@@ -6,7 +6,7 @@ using namespace std;
 #define MAX 1000000000
 int main() {
   int n, i, number1, number2, max, result;
-  cin >> n;
+  std::cin >> n;
   while (n) {
     //scanf("%d", &max);
 		cin >> max;
