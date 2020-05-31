@@ -3,6 +3,27 @@
 
 // Merge arr1[0..n1-1] and arr2[0..n2-1] into
 // arr3[0..n1+n2-1]
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+// A function to implement bubble sort
+void bubbleSort(int arr[], int n)
+{
+   int i, j;
+   for (i = 0; i < n-1; i++)
+
+       // Last i elements are already in place
+       for (j = 0; j < n-i-1; j++)
+           if (arr[j] > arr[j+1])
+              swap(&arr[j], &arr[j+1]);
+}
+
+/* Function to print an array */
+
 void mergeArrays(int arr1[], int arr2[], int n1,
                              int n2, int arr3[])
 {
@@ -39,16 +60,20 @@ int main()
 	int n1;
     int arr2[100] = {};
     int n2;
-
+	//scan array 1
 	scanf("%d", &n1);
-	scanf("%d", &n2);
 	for (i = 0; i < n1; i++) {
 		scanf("%d", &arr1[i]);
 	}
+	//scan array 2
+	scanf("%d", &n2);
 	for (i = 0; i < n2; i++) {
 		scanf("%d", &arr2[i]);
 	}
 
+	bubbleSort(arr1, n1);
+	bubbleSort(arr2, n2);
+	
     int arr3[n1+n2];
     mergeArrays(arr1, arr2, n1, n2, arr3);
 
